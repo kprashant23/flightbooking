@@ -3,6 +3,9 @@ const { ServerConfig, Logger } = require('./config');
 const apiRoutes = require('./routes');
 const app = express();
 
+app.use(express.json()); // body parser
+app.use(express.urlencoded({ extended: true })); // aceesing url encoding
+
 app.use('/api', apiRoutes);
 
 app.listen(ServerConfig.PORT, () => {
